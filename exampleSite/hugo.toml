@@ -1,9 +1,10 @@
-baseURL = 'https://thenral-hugo.netlify.app/'
+baseURL = 'https://millennierd.com/'
 languageCode = 'en-us'
 title = 'Thenral'
 theme = 'thenral-hugo'
 
-paginate = '6' # <- Set the desired number of posts per page 
+[pagination]
+	pagerSize = '6' # <- Set the desired number of posts per page 
 summaryLength = '20' # <- 20 words are approximately 160 characters
 googleAnalytics = 'G-MEASUREMENT_ID' # <- Your GA-4
 disqusShortname = 'your-disqus-shortname' # <- Get form here : https://disqus.com
