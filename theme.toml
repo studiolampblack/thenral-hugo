@@ -18,3 +18,11 @@ features = ['tailwindcss', 'two-column', 'sidebar', 'horizontal-menu']
 [author]
   name = 'Ram Iyer'
   homepage = 'https://ramiyer.io/'
+
+[module]
+  [[module.hugoVersion]]
+    min = '0.145.0'
+    extended = true
+  [[module.mounts]]
+    source = 'assets'
+    target = 'static'
