@@ -10,21 +10,31 @@
 
       {{- if (or (strings.HasPrefix .Params.image "http") (strings.HasPrefix .Params.image "//")) }}
 
-        <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" 
-          src="{{ .Params.image }}?width=720&quality=85&aspect_ratio=16:9&crop=center" 
-          alt="{{ $.Name }}" 
-          width="720"
-          height="405">
+        {{- if .Site.Params.cdnImage }}
+
+          <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" 
+               src="{{ .Params.image }}?width=720&quality=85&aspect_ratio=16:9&crop=center" 
+               alt="{{ $.Name }}" 
+               width="720"
+               height="405">
+
+        {{- else }}
+
+          <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" 
+               src="{{ .Params.image }}" 
+               alt="{{ $.Name }}">
+
+        {{- end }}
 
       {{- else }}
 
         {{- with $imgfeature := resources.Get .Params.image }}
           {{ $imgfeature := $imgfeature.Resize "720x Q85" -}}
           <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer"
-            src="{{ $imgfeature.Permalink }}"
-            alt="{{ $.Name }}"
-            width="{{ $imgfeature.Width }}"
-            height="{{ $imgfeature.Height }}">
+               src="{{ $imgfeature.Permalink }}"
+               alt="{{ $.Name }}"
+               width="{{ $imgfeature.Width }}"
+               height="{{ $imgfeature.Height }}">
         {{- end }}
 
       {{- end }}
