@@ -52,10 +52,10 @@
         {{- if (or (strings.HasPrefix .Params.image "http") (strings.HasPrefix .Params.image "//")) }}
 
           <img class="rounded-lg" 
-            src="{{ .Params.image }}?width=750" 
+            src="{{ .Params.image }}?width=750&aspect_ratio=16:9&crop=center" 
             alt="{{ .Params.title }}"
-            width="750px"
-            style="width: 100%; height: 100%; object-fit: cover;">
+            width="750"
+            height="422">
 
         {{- else }}
 
