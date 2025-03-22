@@ -9,7 +9,7 @@
 		    {{- if .Site.Params.cdnImage }}
 
 		      <img class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer" 
-			       src="{{ .Params.image }}?width=250&aspect_ratio=1:1&crop=center" 
+			       src="{{ .Params.image }}?width=250&height=250&fit=cover"
 			       alt="{{ $.Name }}"
 			       width="250"
 			       height="250">

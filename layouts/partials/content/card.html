@@ -11,7 +11,7 @@
 		    {{- if .Site.Params.cdnImage }}
 
 			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer"
-				   src="{{ .Params.image }}?width=750&aspect_ratio=16:9&crop=center" 
+				   src="{{ .Params.image }}?width=750&height=420&fit=cover" 
 				   alt="{{ $.Name }}"
 				   width="750"
 				   height="422">

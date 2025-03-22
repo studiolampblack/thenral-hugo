@@ -54,7 +54,7 @@
           {{- if .Site.Params.cdnImage }}
 
             <img class="rounded-lg" 
-              src="{{ .Params.image }}?width=750&aspect_ratio=16:9&crop=center" 
+              src="{{ .Params.image }}?width=750&height=420&fit=cover" 
               alt="{{ .Params.title }}"
               width="750"
               height="422">
