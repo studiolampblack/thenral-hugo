@@ -1,4 +1,4 @@
-{{- if .Site.Params.Newsletter }}
+{{- if .Site.Params.Buttondown -}}
 	
 <div class="max-w-7xl mx-auto my-16 rounded-3xl bg-blue-500">
 	
@@ -6,9 +6,9 @@
 
 		<div class="w-full md:w-3/5 lg:pr-10 text-white">
 
-			<h3 class="text-2xl font-semibold mb-4">Stay updated, enter your email address.</h3>
+			<h3 class="text-2xl font-semibold mb-4">Stay updated.</h3>
 
-			<p>Join our community of enthusiasts and stay informed. Just enter your email below, and we'll make sure you're always in the know!</p>
+			<p>Join our community of enthusiasts and stay informed. Enter your email address, and we'll make sure you're always in the know!</p>
 
 		</div>
 
@@ -16,11 +16,20 @@
 
 		<div class="self-center flex flex-col w-full md:w-2/5">
 
-			<form class="block lg:flex space-y-6 lg:space-y-0 lg:space-x-4">
+			<form
+				class="block lg:flex space-y-6 lg:space-y-0 lg:space-x-4 embeddable-buttondown-form"
+				method="post"
+				target="popupwindow"
+				onsubmit="window.open('https://buttondown.com/{{- .Site.Params.Buttondown -}}', 'popupwindow')">
 
-				<input class="w-full lg:w-3/5 px-6 py-2 rounded-full" type="text" placeholder="Email...">
+				<input
+					class="w-full lg:w-3/5 px-6 py-2 rounded-full"
+					type="email"
+					id="bd-email"
+					name="email"
+					placeholder="Enter your email address">
 
-				<button class="w-full lg:w-2/5 px-6 py-2 rounded-full bg-white">Subscribe</button>
+				<button class="w-full lg:w-2/5 px-6 py-2 rounded-full bg-white" type="submit">Subscribe</button>
 
 			</form>
 		</div>
@@ -28,4 +37,4 @@
 	</div>
 
 </div>
-{{- end }}
+{{- end -}}
