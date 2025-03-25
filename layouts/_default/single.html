@@ -17,17 +17,9 @@
       
       <div id="writer" class="flex items-center space-x-4">
 
-        {{- $name := .Site.Author.name -}}
-
-        {{- with $avatar := resources.Get .Site.Author.avatar }}
-
-        <img class="w-12 h-12 bg-black rounded-full" src="{{ $avatar.Permalink }}" alt="{{ $name }} avatar" width="{{ $avatar.Width }}" height="{{ $avatar.Height }}">
-
-        {{ end -}}
-        
         <ul class="flex items-center space-x-4 flex-nowrap whitespace-nowrap overflow-x-auto">
           
-          <li class="font-semibold my-2">{{ .Site.Author.name }}</li>
+          <li class="font-semibold my-2">{{ .Site.Params.Author.name }}</li>
           
           <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">
             {{- $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" -}}
