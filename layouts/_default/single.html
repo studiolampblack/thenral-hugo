@@ -75,7 +75,7 @@
       {{- end }}
 
       {{- if (isset .Params "caption") }}
-        <figcaption class="text-center italic text-xs">{{ .Params.caption }}</figcaption>
+        <figcaption class="text-center text-xs">{{ .Params.caption | markdownify }}</figcaption>
       {{- end }}
 
     </figure>
