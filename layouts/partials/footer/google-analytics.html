@@ -1,7 +1,0 @@
-{{- template "_internal/google-analytics.html" . -}}
-<script>
-    gtag('event', 'page_view', {
-        'category': '{{ .Params.categories | index 0 }}',
-        'tags': '{{ delimit .Params.tags ", " }}'
-    });
-</script>

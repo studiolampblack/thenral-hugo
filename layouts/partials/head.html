@@ -6,4 +6,4 @@
 <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.description }}{{ end }}">
 {{- partialCached "head/css.html" . -}}
 {{- partialCached "head/favicon.html" . -}}
-{{- /* template "_internal/google_analytics.html" . */ -}}
+{{- template "_internal/google_analytics.html" . -}}
