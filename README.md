@@ -55,8 +55,6 @@ You can configure the following settings in your Hugo project:
 
 - `paginate` = '6' (Set the desired number of home posts per page)
 - `summaryLength` = '20' (Approximately 160 characters for 20 words)
-- `googleAnalytics` = '' (Your GA-4 analytics code)
-- `disqusShortname` = '' (Your Disqus shortname)
 
 ## Custom Theme
 
