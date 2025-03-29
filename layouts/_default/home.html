@@ -1,8 +1,13 @@
 {{ define "main" }}
 
-<!-- Feature the latest post in the blog -->
+<!-- Feature post: Prioritize posts with the "feature" tag, fallback to the latest post -->
 
-{{- range first 1 .Site.RegularPages.ByDate.Reverse -}}
+{{- $featuredPost := (where .Site.RegularPages "Params.tags" "intersect" (slice "featured") | first 1) -}}
+{{- if not $featuredPost -}}
+  {{- $featuredPost = (first 1 .Site.RegularPages.ByDate.Reverse) -}}
+{{- end -}}
+
+{{- range $featuredPost -}}
 <section class="block md:flex relative group p-6 lg:p-10 space-y-6 md:space-x-6 my-14 bg-zinc-100 rounded-3xl hover:bg-blue-100">
   <figure class="basis-1/2 w-full aspect-video overflow-hidden rounded-2xl border">
 
