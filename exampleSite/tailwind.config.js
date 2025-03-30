@@ -12,16 +12,19 @@ module.exports = {
             'button, input, select, textarea': {
               fontWeight: '500',
             },
+            'code, pre': {
+              fontFamily: 'Source Code Pro, monospace',
+            },
           }
         },
       },
       fontFamily: {
         sora: ['Sora', 'sans-serif'],
         lora: ['Lora', 'serif'],
+        source: ['Source Code Pro', 'monospace'],
       },
       fontWeight: {
         ui: 500,
-        uiSmall: 400,
         heading: 700,
         hero: 800,
         body: 400,
