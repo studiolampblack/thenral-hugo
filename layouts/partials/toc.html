@@ -23,7 +23,7 @@
      </svg>
     </summary>
 
-    <ul class="mt-2 py-2">
+    <ul class="mb-4 pb-4">
       {{- range seq (sub $firstHeaderLevel $largest) -}}
       <ul>
         {{- $.Scratch.Add "bareul" (sub (add $largest .) 1) -}}
