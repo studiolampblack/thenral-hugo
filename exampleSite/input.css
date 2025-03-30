@@ -50,6 +50,10 @@
     @apply font-sora font-heading;
   }
 
+  #taxonomy {
+    @apply font-sora font-ui;
+  }
+
   pre, code {
     @apply font-source font-mono;
   }
