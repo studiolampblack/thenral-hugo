@@ -1,3 +1,24 @@
+@font-face {
+  font-family: 'Sora';
+  src: url('/fonts/sora.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('/fonts/lora.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('/fonts/lora-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -106,9 +127,7 @@
   --tw-contain-style:  ;
 }
 
-/*
-! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com
-*/
+/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -552,6 +571,21 @@ video {
 
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
+}
+
+#content {
+  font-family: Lora, serif;
+  font-weight: 400;
+}
+
+body {
+  font-family: Sora, sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Sora, sans-serif;
+  font-weight: 700;
 }
 
 .prose {
@@ -1057,6 +1091,10 @@ video {
 
 .prose :where(.prose > :last-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   margin-bottom: 0;
+}
+
+.prose :where(button, input, select, textarea):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  font-weight: 500;
 }
 
 .insert-link::before {
@@ -1614,6 +1652,10 @@ video {
   font-weight: 600;
 }
 
+.font-ui {
+  font-weight: 500;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -1707,6 +1749,11 @@ details[open] summary svg {
 
 summary svg {
   transition: transform 0.3s ease;
+}
+
+.uppercase {
+  letter-spacing: 0.03em;
+  /* Apply custom letter-spacing */
 }
 
 @media (min-width: 1024px) {
