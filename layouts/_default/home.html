@@ -2,9 +2,9 @@
 
 <!-- Feature post: Prioritize posts with the "feature" tag, fallback to the latest post -->
 
-{{- $featuredPost := (where .Site.RegularPages "Params.tags" "intersect" (slice "featured") | first 1) -}}
+{{- $featuredPost := (where (where .Site.RegularPages "Type" "posts") "Params.tags" "intersect" (slice "featured") | first 1) -}}
 {{- if not $featuredPost -}}
-  {{- $featuredPost = (first 1 .Site.RegularPages.ByDate.Reverse) -}}
+  {{- $featuredPost = (first 1 (where .Site.RegularPages "Type" "posts").ByDate.Reverse) -}}
 {{- end -}}
 
 {{- range $featuredPost -}}
@@ -48,7 +48,7 @@
 
   </figure>
   <div class="basis-1/2 self-center">
-    <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold mb-4"><a class="before:content-[''] before:z-10 before:top-0 before:right-0 before:left-0 before:bottom-0 before:absolute before:pointer-events-auto" href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <h2 class="text-2xl md:text-3xl lg:text-5xl font-hero mb-4"><a class="before:content-[''] before:z-10 before:top-0 before:right-0 before:left-0 before:bottom-0 before:absolute before:pointer-events-auto" href="{{ .Permalink }}">{{ .Title }}</a></h2>
     <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}"><span class="font-bold">{{ .Date.Format "Jan 02, 2006" }}</span></time>
   </div>
 </section>
@@ -71,7 +71,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10">
 
-    {{ range where .Site.RegularPages "Params.categories" "intersect" (slice $cat ) | first 3 }}
+    {{ range where (where .Site.RegularPages "Type" "posts") "Params.categories" "intersect" (slice $cat ) | first 3 }}
 
       {{- partial "content/card" . -}}
 
@@ -95,7 +95,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10">
 
-    {{ $paginator := .Paginate ( where site.RegularPages "Type" "in" site.Params.mainSections) }}
+    {{ $paginator := .Paginate ( where (where site.RegularPages "Type" "posts") "Type" "in" site.Params.mainSections) }}
 
     {{ range $paginator.Pages }}
 

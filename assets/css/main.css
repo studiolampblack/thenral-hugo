@@ -1,21 +1,36 @@
 @font-face {
   font-family: 'Sora';
+
   src: url('/fonts/sora.woff2') format('woff2');
+
   font-weight: 400 800;
+
+  /* Restrict to 400, 500, 700, 800 */
+
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Lora';
+
   src: url('/fonts/lora.woff2') format('woff2');
+
   font-weight: 400;
+
+  /* Restrict to 400 for body text */
+
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Lora';
+
   src: url('/fonts/lora-italic.woff2') format('woff2');
+
   font-weight: 400;
+
+  /* Restrict to 400 for italic body text */
+
   font-style: italic;
 }
 
@@ -1646,6 +1661,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .font-bold {
   font-weight: 700;
+}
+
+.font-hero {
+  font-weight: 800;
 }
 
 .font-semibold {
