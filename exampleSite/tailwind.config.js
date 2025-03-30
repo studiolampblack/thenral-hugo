@@ -6,22 +6,20 @@ module.exports = {
     ],
   theme: {
     extend: {
+      fontFamily: {
+        sora: ['Sora', 'sans-serif'],
+        lora: ['Lora', 'serif'],
+        source: ['Source Code Pro', 'monospace'],
+        mono: ['Source Code Pro', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'], // Override default monospace stack
+      },
       typography: {
         DEFAULT: {
           css: {
             'button, input, select, textarea': {
               fontWeight: '500',
             },
-            'code, pre': {
-              fontFamily: 'Source Code Pro, monospace',
-            },
           }
         },
-      },
-      fontFamily: {
-        sora: ['Sora', 'sans-serif'],
-        lora: ['Lora', 'serif'],
-        source: ['Source Code Pro', 'monospace'],
       },
       fontWeight: {
         ui: 500,

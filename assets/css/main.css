@@ -301,7 +301,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: Source Code Pro, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   /* 1 */
   font-feature-settings: normal;
   /* 2 */
@@ -634,7 +634,7 @@ h1, h2, h3, h4, h5, h6 {
 
 pre, code {
   font-family: Source Code Pro, monospace;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: Source Code Pro, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 }
 
 .prose {
@@ -1144,10 +1144,6 @@ pre, code {
 
 .prose :where(button, input, select, textarea):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   font-weight: 500;
-}
-
-.prose :where(code, pre):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
-  font-family: Source Code Pro, monospace;
 }
 
 .insert-link::before {
