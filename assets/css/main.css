@@ -637,6 +637,15 @@ pre, code {
   font-family: Source Code Pro, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 }
 
+@media (max-width: 640px) {
+  #content {
+    font-size: 1.1rem;
+    /* Increase font size for smaller screens */
+    line-height: 1.7;
+    /* Increase line height for smaller screens */
+  }
+}
+
 .prose {
   color: var(--tw-prose-body);
   max-width: 65ch;
@@ -996,7 +1005,7 @@ pre, code {
 }
 
 .prose {
-  --tw-prose-body: #374151;
+  --tw-prose-body: var(--tw-prose-headings);
   --tw-prose-headings: #111827;
   --tw-prose-lead: #4b5563;
   --tw-prose-links: #111827;
@@ -1682,6 +1691,11 @@ pre, code {
   line-height: 2.5rem;
 }
 
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -2195,6 +2209,11 @@ summary svg {
   .sm\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .sm\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
 

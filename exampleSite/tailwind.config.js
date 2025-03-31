@@ -10,7 +10,7 @@ module.exports = {
         sora: ['Sora', 'sans-serif'],
         lora: ['Lora', 'serif'],
         source: ['Source Code Pro', 'monospace'],
-        mono: ['Source Code Pro', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'], // Override default monospace stack
+        mono: ['Source Code Pro', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
       },
       typography: {
         DEFAULT: {
@@ -18,6 +18,7 @@ module.exports = {
             'button, input, select, textarea': {
               fontWeight: '500',
             },
+            '--tw-prose-body': 'var(--tw-prose-headings)', // Make text more readable
           }
         },
       },
@@ -28,7 +29,7 @@ module.exports = {
         body: 400,
       },
       letterSpacing: {
-        uppercase: '0.03em', // Add custom letter-spacing for uppercase
+        uppercase: '0.03em', // Typographically tweak uppercase
       },
     },
   },

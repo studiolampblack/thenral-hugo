@@ -57,6 +57,13 @@
   pre, code {
     @apply font-source font-mono;
   }
+
+  @media (max-width: 640px) {
+    #content {
+      font-size: 1.1rem; /* Increase font size for smaller screens */
+      line-height: 1.7; /* Increase line height for smaller screens */
+    }
+  }
 }
 
 @layer components {
