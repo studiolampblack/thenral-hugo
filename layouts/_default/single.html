@@ -39,14 +39,15 @@
 
     <figure id="featureimage" class="rounded-xl aspect-video">
 
-      {{- if .Params.image }}
+      {{- if .Params.images }}
+        {{- $firstImage := index .Params.images 0 }}
 
-        {{- if (or (strings.HasPrefix .Params.image "http") (strings.HasPrefix .Params.image "//")) }}
+        {{- if (or (strings.HasPrefix $firstImage "http") (strings.HasPrefix $firstImage "//")) }}
 
           {{- if .Site.Params.cdnImage }}
 
             <img class="rounded-lg" 
-              src="{{ .Params.image }}?width=750&height=420&fit=cover" 
+              src="{{ $firstImage }}?width=750&height=420&fit=cover" 
               alt="{{ .Params.title }}"
               width="750"
               height="422">
@@ -54,14 +55,14 @@
           {{- else }}
 
             <img class="rounded-lg" 
-              src="{{ .Params.image }}" 
+              src="{{ $firstImage }}" 
               alt="{{ .Params.title }}">
 
           {{- end }}
 
         {{- else }}
 
-          {{- with $image := resources.Get .Params.image }}
+          {{- with $image := resources.Get $firstImage }}
             {{- $image := $image.Resize "750x" }}
             <img class="rounded-lg"
               src="{{ $image.Permalink }}"

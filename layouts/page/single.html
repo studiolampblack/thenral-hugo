@@ -4,10 +4,14 @@
 
 	<div class="mb-14">	
 
-		<img class="rounded-3xl" src="{{ .Params.image | absURL }}" alt="{{ .Title }}">
+		{{- if .Params.images }}
+		  {{- $firstImage := index .Params.images 0 }}
+
+		  <img class="rounded-3xl" src="{{ $firstImage | absURL }}" alt="{{ .Title }}">
+
+		{{- end }}
 
 	</div>
-
 
 	<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 

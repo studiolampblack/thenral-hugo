@@ -11,14 +11,15 @@
 <section class="block md:flex relative group p-6 lg:p-10 space-y-6 md:space-x-6 my-14 bg-zinc-100 rounded-3xl hover:bg-sky-100">
   <figure class="basis-1/2 w-full aspect-video overflow-hidden rounded-2xl border">
 
-    {{- if .Params.image }}
+    {{- if .Params.images }}
+      {{- $firstImage := index .Params.images 0 }}
 
-      {{- if (or (strings.HasPrefix .Params.image "http") (strings.HasPrefix .Params.image "//")) }}
+      {{- if (or (strings.HasPrefix $firstImage "http") (strings.HasPrefix $firstImage "//")) }}
 
         {{- if .Site.Params.cdnImage }}
 
           <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" 
-               src="{{ .Params.image }}?width=720&height=405&fit=cover" 
+               src="{{ $firstImage }}?width=720&height=405&fit=cover" 
                alt="{{ $.Name }}" 
                width="720"
                height="405">
@@ -26,14 +27,14 @@
         {{- else }}
 
           <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" 
-               src="{{ .Params.image }}" 
+               src="{{ $firstImage }}" 
                alt="{{ $.Name }}">
 
         {{- end }}
 
       {{- else }}
 
-        {{- with $imgfeature := resources.Get .Params.image }}
+        {{- with $imgfeature := resources.Get $firstImage }}
           {{ $imgfeature := $imgfeature.Resize "720x Q85" -}}
           <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer"
                src="{{ $imgfeature.Permalink }}"

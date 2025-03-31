@@ -4,14 +4,15 @@
 
 	<figure class="w-full aspect-video overflow-hidden rounded-3xl">
 
-		{{- if .Params.image }}
+		{{- if .Params.images }}
+		  {{- $firstImage := index .Params.images 0 }}
 
-		  {{- if (or (strings.HasPrefix .Params.image "http") (strings.HasPrefix .Params.image "//")) }}
+		  {{- if (or (strings.HasPrefix $firstImage "http") (strings.HasPrefix $firstImage "//")) }}
 
 		    {{- if .Site.Params.cdnImage }}
 
 			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer"
-				   src="{{ .Params.image }}?width=750&height=420&fit=cover" 
+				   src="{{ $firstImage }}?width=750&height=420&fit=cover" 
 				   alt="{{ $.Name }}"
 				   width="750"
 				   height="422">
@@ -19,14 +20,14 @@
 		    {{- else }}
 
 			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer"
-				   src="{{ .Params.image }}" 
+				   src="{{ $firstImage }}" 
 				   alt="{{ $.Name }}">
 
 		    {{- end }}
 
 		  {{- else }}
 
-			{{- with $imgcard := resources.Get .Params.image -}}
+			{{- with $imgcard := resources.Get $firstImage -}}
 			  {{- $imgcard := $imgcard.Process "resize 750x" -}}
 			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer"
 				   src="{{ $imgcard.Permalink }}"
