@@ -24,6 +24,16 @@ module.exports = {
               fontSize: '90%',
               quotes: 'none',
             },
+            'code': {
+              fontWeight: '400',
+              fontSize: '1em'
+            },
+            'code::before': {
+              content: 'none',
+            },
+            'code::after': {
+              content: 'none',
+            },
           }
         },
       },
