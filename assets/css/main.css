@@ -761,14 +761,15 @@ pre, code {
 
 .prose :where(blockquote):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   font-weight: 500;
-  font-style: italic;
+  font-style: normal;
   color: var(--tw-prose-quotes);
   border-inline-start-width: 0.25rem;
   border-inline-start-color: var(--tw-prose-quote-borders);
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: none;
   margin-top: 1.6em;
   margin-bottom: 1.6em;
   padding-inline-start: 1em;
+  font-size: 90%;
 }
 
 .prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"],[class~="not-prose"] *))::before {

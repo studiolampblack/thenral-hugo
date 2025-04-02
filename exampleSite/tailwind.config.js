@@ -19,6 +19,11 @@ module.exports = {
               fontWeight: '500',
             },
             '--tw-prose-body': 'var(--tw-prose-headings)', // Make text more readable
+            blockquote: { // Typographically pleasant blockquotes
+              fontStyle: 'normal',
+              fontSize: '90%',
+              quotes: 'none',
+            },
           }
         },
       },
