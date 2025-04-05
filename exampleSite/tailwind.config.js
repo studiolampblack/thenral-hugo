@@ -46,6 +46,9 @@ module.exports = {
       letterSpacing: {
         uppercase: '0.03em', // Typographically tweak uppercase
       },
+      colors: {
+        'amazon-yellow': '#FF9900',
+      }
     },
   },
   plugins: [

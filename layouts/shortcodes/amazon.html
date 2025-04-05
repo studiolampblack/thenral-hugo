@@ -1,13 +1,62 @@
-{{- $text := .Get 0 -}}
-{{- $affiliateParam := .Get 1 -}}
-{{- $link := "" -}}
+{{/*
+Hugo Shortcode for Enhanced Amazon Affiliate Card
+Parameters:
+- title (Required): Product title
+- asin (Required): Amazon ASIN (or full affiliate link)
+- image (Required): URL to the product image
+- description (Optional): Short product description
+- price (Optional): Product price
+- width (Optional): Card width (e.g., "md", "lg", "xl", "full")
+- objectFit (Optional): CSS object-fit property (e.g., "cover", "contain")
+*/}}
 
-{{- if (findRE "^http" $affiliateParam) -}}
-    {{- $link = $affiliateParam -}}
+{{- $title := .Get "title" -}}
+{{- $asin := .Get "asin" -}}
+{{- $image := .Get "image" -}}
+{{- $description := .Get "description" -}}
+{{- $price := .Get "price" -}}
+
+{{- $affiliateLink := "" -}}
+
+{{- if (findRE "^http" $asin) -}}
+{{- $affiliateLink = $asin -}}
 {{- else -}}
-    {{- $domain := .Site.Params.Amazon.Domain | default "amazon.in" -}}
-    {{- $trackingId := .Site.Params.Amazon.TrackingId | default "ramiyer08-21" -}}
-    {{- $link = printf "%s" $trackingId | printf "%s%s" "?tag=" | printf "%s%s" $affiliateParam | printf "%s%s" "/dp/" | printf "%s%s" $domain | printf "%s%s" "https://www." -}}
+{{- $domain := .Site.Params.Amazon.Domain | default "amazon.in" -}}
+{{- $trackingId := .Site.Params.Amazon.TrackingId | default "ramiyer08-21" -}}
+{{- $affiliateLink = printf "%s" $trackingId | printf "%s%s" "?tag=" | printf "%s%s" $asin | printf "%s%s" "/dp/" |
+printf "%s%s" $domain | printf "%s%s" "https://www." -}}
 {{- end -}}
 
-<a href="{{- $link -}}" target="_blank">{{- $text | markdownify -}}</a>
+{{- $currentPage := .Page -}} {{/* For later use with "with" */}}
+
+<div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10">
+    <div class="relative group bg-zinc-100 hover:bg-sky-100 rounded-3xl amazon-card">
+        <a href="{{- $affiliateLink -}}" target="_blank" rel="nofollow" class="insert-link"></a>
+        <figure class="w-full aspect-video overflow-hidden rounded-3xl">
+            <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" src="{{- $image -}}" alt="{{- $title -}}"></img>
+        </figure>
+        <div class="p-6">
+            <h3 class="my-4 text-2xl font-bold">{{- $title -}}</h3>
+            {{- with $description -}}
+            <p class="my-4 font-ui text-normal leading-normal text-zinc-500 line-clamp-2">{{- . | markdownify -}}</p>
+            {{- end -}}
+            {{ with $price }}
+            <div class="text-gray-800 font-bold">
+            {{- . | markdownify -}}
+            </div>
+            <div class="text-sm text-gray-500 mb-4">
+            {{- $updateDateString := "" -}}
+            {{- if $currentPage.Params.productPriceUpdated -}}
+            {{- $updateDateString = $currentPage.Params.productPriceUpdated -}}
+            {{- else -}}
+            {{- $updateDateString = dateFormat "2 Jan 2006" $currentPage.Date -}}
+            {{- end -}}
+            (As of&nbsp;{{- $updateDateString -}})
+            </div>
+           {{ end }}
+            <a href="{{- $affiliateLink -}}" class="inline-block bg-amazon-yellow text-white py-2 px-4 rounded-md text-sm font-semibold transition duration-200" target="_blank" rel="nofollow">
+                Check Current Price on Amazon
+            </a>
+        </div>
+    </div>
+</div>
