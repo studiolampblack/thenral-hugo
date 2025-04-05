@@ -1376,6 +1376,10 @@ pre, code {
   max-width: 80rem;
 }
 
+.max-w-lg {
+  max-width: 32rem;
+}
+
 .basis-1\/2 {
   flex-basis: 50%;
 }
@@ -2249,6 +2253,10 @@ summary svg {
 }
 
 @media (min-width: 640px) {
+  .sm\:w-full {
+    width: 100%;
+  }
+
   .sm\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -2284,6 +2292,10 @@ summary svg {
 
   .md\:w-2\/5 {
     width: 40%;
+  }
+
+  .md\:w-3\/4 {
+    width: 75%;
   }
 
   .md\:w-3\/5 {
@@ -2345,6 +2357,10 @@ summary svg {
 
   .lg\:flex {
     display: flex;
+  }
+
+  .lg\:w-1\/2 {
+    width: 50%;
   }
 
   .lg\:w-2\/5 {
