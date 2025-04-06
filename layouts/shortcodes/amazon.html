@@ -6,8 +6,7 @@ Parameters:
 - image (Required): URL to the product image
 - description (Optional): Short product description
 - price (Optional): Product price
-- width (Optional): Card width (e.g., "md", "lg", "xl", "full")
-- objectFit (Optional): CSS object-fit property (e.g., "cover", "contain")
+- priceUpdated (Optional): Date when the product price was last updated
 */}}
 
 {{- $title := .Get "title" -}}
@@ -15,6 +14,7 @@ Parameters:
 {{- $image := .Get "image" -}}
 {{- $description := .Get "description" -}}
 {{- $price := .Get "price" -}}
+{{- $priceUpdated := .Get "priceUpdated" -}}
 
 {{- $affiliateLink := "" -}}
 
@@ -47,8 +47,8 @@ printf "%s%s" $domain | printf "%s%s" "https://www." -}}
                 </div>
                 <div class="text-sm text-gray-500 mb-4">
                 {{- $updateDateString := "" -}}
-                {{- if $currentPage.Params.productPriceUpdated -}}
-                {{- $updateDateString = $currentPage.Params.productPriceUpdated -}}
+                {{- if $priceUpdated -}}
+                {{- $updateDateString = $priceUpdated -}}
                 {{- else -}}
                 {{- $updateDateString = dateFormat "2 Jan 2006" $currentPage.Date -}}
                 {{- end -}}
