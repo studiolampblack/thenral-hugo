@@ -39,7 +39,7 @@ printf "%s%s" $domain | printf "%s%s" "https://www." -}}
                 <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" src="{{- $image -}}" alt="{{- $title -}}"></img>
             </figure>
             <div class="p-6">
-                <h3 class="my-4 text-2xl font-bold">{{- $title -}}</h3>
+                <h3 id="{{- $title | anchorize -}}" class="my-4 text-2xl font-bold" data-toc-skip>{{- $title -}}</h3>
                 {{- with $description -}}
                 <p class="my-4 font-ui text-normal leading-normal text-zinc-500 line-clamp-2">{{- . | markdownify -}}</p>
                 {{- end -}}
@@ -62,7 +62,7 @@ printf "%s%s" $domain | printf "%s%s" "https://www." -}}
                     </span>
                 </a>
                 <div class="text-sm text-gray-500 my-4">
-                    As an Amazon Associate, I may earn from qualifying purchases at <strong>no extra cost</strong> to you.
+                    As an Amazon Associate, I earn from qualifying purchases at <strong>no extra cost</strong> to you.
                 </div>
             </div>
         </div>

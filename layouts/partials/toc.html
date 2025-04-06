@@ -1,4 +1,10 @@
-{{- $headers := findRE "<h[1-4].*?>(.|\n])+?</h[1-4]>" .Content -}}
+{{- $allHeaders := findRE "<h[1-4].*?>(.|\n)+?</h[1-4]>" .Content -}}
+  {{- $headers := slice -}}
+  {{- range $allHeaders -}}
+  {{- if not (findRE "data-toc-skip" .) -}}
+  {{- $headers = $headers | append . -}}
+  {{- end -}}
+  {{- end -}}
   {{- $has_headers := ge (len $headers) 1 -}}
   {{- if $has_headers -}}
 
@@ -17,10 +23,12 @@
   <details id="TableOfContents" class="px-4 mt-4 bg-zinc-100 rounded-lg toc">
     <summary class="flex items-center font-bold py-2 px-4 cursor-pointer justify-between select-none">
       <span>Table of contents</span>
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="24" height="24"
+        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+        stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
         <polyline points="6 9 12 15 18 9"></polyline>
-     </svg>
+      </svg>
     </summary>
 
     <ul class="mb-4 pb-4">
@@ -91,4 +99,4 @@
     {{- end -}}
     </ul>
   </details>
-{{- end -}}
+  {{- end -}}
