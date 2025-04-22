@@ -87,7 +87,7 @@
     <div id="content" class="mb-14 text-base sm:text-lg">
       <!-- Content -->
 
-      {{- .Content -}}
+      {{- .Content | replaceRE `\b([A-Z]{2,})\b` `<abbr>$1</abbr>` | safeHTML -}}
 
       <!-- Tags list -->
 

@@ -74,6 +74,10 @@
     @apply font-sora font-ui;
   }
 
+  abbr {
+    font-variant-caps: all-small-caps;
+  }
+
   @media (max-width: 640px) {
     #content {
       font-size: 1.1rem; /* Increase font size for smaller screens */

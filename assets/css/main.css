@@ -654,6 +654,10 @@ pre, code {
   font-weight: 500;
 }
 
+abbr {
+  font-variant-caps: all-small-caps;
+}
+
 @media (max-width: 640px) {
   #content {
     font-size: 1.1rem;
