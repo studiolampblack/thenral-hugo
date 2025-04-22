@@ -11,27 +11,33 @@
 }
 
 @font-face {
-  font-family: 'Lora';
+  font-family: 'Literata';
 
-  src: url('/fonts/lora.woff2') format('woff2');
+  src: url('/fonts/literata-regular.woff2') format('woff2');
 
   font-weight: 400;
-
-  /* Restrict to 400 for body text */
 
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Lora';
+  font-family: 'Literata';
 
-  src: url('/fonts/lora-italic.woff2') format('woff2');
+  src: url('/fonts/literata-italic.woff2') format('woff2');
 
   font-weight: 400;
 
-  /* Restrict to 400 for italic body text */
-
   font-style: italic;
+}
+
+@font-face {
+  font-family: 'Literata';
+
+  src: url('/fonts/literata-bold.woff2') format('woff2');
+
+  font-weight: bold;
+
+  font-style: normal;
 }
 
 @font-face {
@@ -613,8 +619,15 @@ video {
 }
 
 #content {
-  font-family: Lora, serif;
+  font-family: Literata, serif;
   font-weight: 400;
+  max-width: 70ch;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  a {
+    -webkit-hyphens: none;
+            hyphens: none;
+  }
 }
 
 body {
@@ -1011,7 +1024,7 @@ pre, code {
 }
 
 .prose {
-  --tw-prose-body: var(--tw-prose-headings);
+  --tw-prose-body: #374151;
   --tw-prose-headings: #111827;
   --tw-prose-lead: #4b5563;
   --tw-prose-links: #111827;

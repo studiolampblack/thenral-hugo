@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sora: ['Sora', 'sans-serif'],
-        lora: ['Lora', 'serif'],
+        literata: ['Literata', 'serif'],
         source: ['Source Code Pro', 'monospace'],
         mono: ['Source Code Pro', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
       },
@@ -18,8 +18,7 @@ module.exports = {
             'button, input, select, textarea': {
               fontWeight: '500',
             },
-            '--tw-prose-body': 'var(--tw-prose-headings)', // Make text more readable
-            blockquote: { // Typographically pleasant blockquotes
+            blockquote: { // Typographically appropriate blockquotes
               fontStyle: 'normal',
               fontSize: '90%',
               quotes: 'none',

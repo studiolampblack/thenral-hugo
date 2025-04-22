@@ -6,17 +6,24 @@
 }
 
 @font-face {
-  font-family: 'Lora';
-  src: url('/fonts/lora.woff2') format('woff2');
-  font-weight: 400; /* Restrict to 400 for body text */
+  font-family: 'Literata';
+  src: url('/fonts/literata-regular.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Lora';
-  src: url('/fonts/lora-italic.woff2') format('woff2');
-  font-weight: 400; /* Restrict to 400 for italic body text */
+  font-family: 'Literata';
+  src: url('/fonts/literata-italic.woff2') format('woff2');
+  font-weight: 400;
   font-style: italic;
+}
+
+@font-face {
+  font-family: 'Literata';
+  src: url('/fonts/literata-bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
@@ -39,7 +46,13 @@
 
 @layer base {
   #content {
-    @apply font-lora font-body;
+    @apply font-literata font-body;
+    max-width: 70ch;
+    hyphens: auto;
+
+    a {
+      hyphens: none;
+    }
   }
 
   body {
