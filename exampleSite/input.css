@@ -47,7 +47,6 @@
 @layer base {
   #content {
     @apply font-literata font-body;
-    max-width: 70ch;
     hyphens: auto;
 
     a {
