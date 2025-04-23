@@ -33,9 +33,9 @@
 @font-face {
   font-family: 'Literata';
 
-  src: url('/fonts/literata-bold.woff2') format('woff2');
+  src: url('/fonts/literata-semibold.woff2') format('woff2');
 
-  font-weight: bold;
+  font-weight: 600;
 
   font-style: normal;
 }
