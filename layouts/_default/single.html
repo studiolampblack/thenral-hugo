@@ -88,8 +88,8 @@
       <!-- Content -->
 
       {{- $content := .Content -}}
-      {{- $content := $content | replaceRE `\b([A-Z]{2,})\b` `<abbr>$1</abbr>` -}} <!-- Wrap uppercase words -->
-      {{- $content := $content | replaceRE `(https?://[^\s]*?)<abbr>(.*?)</abbr>([^\s]*)` `$1$2$3` -}} <!-- Remove <abbr> from URLs -->
+      {{- $content := $content | replaceRE `\b([A-Z]{2,})\b` `<span class="small-caps">$1</span>` -}} <!-- Wrap uppercase words -->
+      {{- $content := $content | replaceRE `(https?://[^\s]*?)<span class="small-caps">(.*?)</span>([^\s]*)` `$1$2$3` -}} <!-- Remove <abbr> from URLs -->
       {{- $content | safeHTML -}}
 
       <!-- Tags list -->

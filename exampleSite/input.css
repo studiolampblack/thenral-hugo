@@ -74,8 +74,17 @@
     @apply font-sora font-ui;
   }
 
-  abbr {
-    font-variant-caps: all-small-caps;
+  p, li, figcaption, th, td {
+    .small-caps {
+      font-variant-caps: all-small-caps;
+      letter-spacing: 0.025em;
+    }
+  }
+
+  pre, code {
+    .small-caps {
+      font-variant-caps: normal;
+    }
   }
 
   @media (max-width: 640px) {
