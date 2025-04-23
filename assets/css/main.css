@@ -623,7 +623,7 @@ video {
   font-weight: 400;
   -webkit-hyphens: auto;
           hyphens: auto;
-  a {
+  a, pre, code {
     -webkit-hyphens: none;
             hyphens: none;
   }
