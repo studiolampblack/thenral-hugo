@@ -47,7 +47,13 @@ module.exports = {
       },
       colors: {
         'amazon-yellow': '#FF9900',
-      }
+      },
+      brightness: {
+        80: '0.8', // Add custom brightness level
+      },
+      contrast: {
+        90: '0.9', // Custom contrast level
+      },
     },
   },
   plugins: [

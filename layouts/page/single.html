@@ -7,7 +7,7 @@
 		{{- if .Params.images }}
 		  {{- $firstImage := index .Params.images 0 }}
 
-		  <img class="rounded-3xl" src="{{ $firstImage | absURL }}" alt="{{ .Title }}">
+		  <img class="rounded-3xl dark:dark-img" src="{{ $firstImage | absURL }}" alt="{{ .Title }}">
 
 		{{- end }}
 

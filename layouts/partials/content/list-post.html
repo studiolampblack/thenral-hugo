@@ -9,7 +9,7 @@
 
 		    {{- if .Site.Params.cdnImage }}
 
-		      <img class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer" 
+		      <img class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img" 
 			       src="{{ $firstImage }}?width=250&height=250&fit=cover"
 			       alt="{{ $.Name }}"
 			       width="250"
@@ -17,7 +17,7 @@
 
 		    {{- else }}
 
-		      <img class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer" 
+		      <img class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img" 
 			       src="{{ $firstImage }}" 
 			       alt="{{ $.Name }}">
 
@@ -27,7 +27,7 @@
 
 			{{- with $imglist := resources.Get $firstImage -}}
 			  {{- $imglist := $imglist.Crop "250x250 Center" -}}
-			  <img class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer" 
+			  <img class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img" 
 			       src="{{ $imglist.Permalink }}" 
 			       alt="{{ $.Name }}" 
 			       width="{{ $imglist.Width }}" 

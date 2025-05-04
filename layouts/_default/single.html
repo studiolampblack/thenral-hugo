@@ -46,7 +46,7 @@
 
           {{- if .Site.Params.cdnImage }}
 
-            <img class="rounded-lg" 
+            <img class="rounded-lg dark:dark-img" 
               src="{{ $firstImage }}?width=750&height=420&fit=cover" 
               alt="{{ .Params.title }}"
               width="750"
@@ -54,7 +54,7 @@
 
           {{- else }}
 
-            <img class="rounded-lg" 
+            <img class="rounded-lg dark:dark-img" 
               src="{{ $firstImage }}" 
               alt="{{ .Params.title }}">
 
@@ -64,7 +64,7 @@
 
           {{- with $image := resources.Get $firstImage }}
             {{- $image := $image.Resize "750x" }}
-            <img class="rounded-lg"
+            <img class="rounded-lg dark:dark-img"
               src="{{ $image.Permalink }}"
               alt="{{ .Params.title }}"
               width="{{ $image.Width }}"

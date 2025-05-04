@@ -138,4 +138,8 @@
   .uppercase {
     @apply tracking-uppercase; /* Apply custom letter-spacing */
   }
+
+  .dark-img {
+    @apply brightness-80 contrast-90; /* Tweak images for dark mode */
+  }
 }

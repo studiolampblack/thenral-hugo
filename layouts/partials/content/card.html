@@ -11,7 +11,7 @@
 
 		    {{- if .Site.Params.cdnImage }}
 
-			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer"
+			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img"
 				   src="{{ $firstImage }}?width=750&height=420&fit=cover" 
 				   alt="{{ $.Name }}"
 				   width="750"
@@ -19,7 +19,7 @@
 
 		    {{- else }}
 
-			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer"
+			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img"
 				   src="{{ $firstImage }}" 
 				   alt="{{ $.Name }}">
 
@@ -29,7 +29,7 @@
 
 			{{- with $imgcard := resources.Get $firstImage -}}
 			  {{- $imgcard := $imgcard.Process "resize 750x" -}}
-			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer"
+			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img"
 				   src="{{ $imgcard.Permalink }}"
 				   alt="{{ $.Name }}"
 				   width="{{ $imgcard.Width }}"
