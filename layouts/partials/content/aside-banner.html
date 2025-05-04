@@ -3,7 +3,11 @@
 <div class="rounded-2xl p-4 bg-zinc-100 mb-10">
 
 		<a href="{{ $randomAd.link }}" target="_blank" rel="noopener" title="Visit {{ $randomAd.alt }}">
-			<img class="aspect-square rounded" src="{{ $randomAd.image }}" alt="{{ $randomAd.alt }}" loading="lazy">
+			<picture>
+				<source srcset="{{ $randomAd.image_dark }}" media="(prefers-color-scheme: dark)">
+				<source srcset="{{ $randomAd.image_light }}" media="(prefers-color-scheme: light)">
+				<img class="aspect-square rounded" src="{{ $randomAd.image_light }}" alt="{{ $randomAd.alt }}" loading="lazy">
+			</picture>
 		</a>
 
 		<p class="text-right text-xs mt-2 leading-none text-zinc-500">Advertisement</p>
