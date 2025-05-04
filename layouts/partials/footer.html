@@ -5,8 +5,16 @@
     <div class="w-full md:w-3/5 flex flex-col space-y-4 md:pr-8 lg:pr-10">
 
       <a class="flex items-center group" href="{{ .Site.BaseURL }}">
-        <img class="mr-2" src="/favicon/favicon.svg" alt="{{ .Site.Title }} Favicon">
-        <img src="/images/logo.svg" alt="{{ .Site.Title }} logo">
+        <picture>
+          <source srcset="/images/favicon_dark.svg" media="(prefers-color-scheme: dark)">
+          <source srcset="/images/favicon_light.svg" media="(prefers-color-scheme: light)">
+          <img class="mr-2" src="/images/favicon_light.svg" alt="{{ .Site.Title }} Favicon" width="32" height="32">
+        </picture>
+        <picture>
+          <source srcset="/images/logo_dark.svg" media="(prefers-color-scheme: dark)">
+          <source srcset="/images/logo_light.svg" media="(prefers-color-scheme: light)">
+          <img src="/images/logo_light.svg" alt="{{ .Site.Title }} logo" width="170" height="25">
+        </picture>
       </a>
 
       <p class="font-semibold">

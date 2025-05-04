@@ -8,7 +8,11 @@
 			</button>
 			<div class="relative rounded-full py-1.5 px-6 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-xl font-bold uppercase mx-2">
 				<a href="/">
-					<img src="/images/logo.svg" alt="{{ .Site.Title }} logo">
+					<picture>
+						<source srcset="/images/logo_dark.svg" media="(prefers-color-scheme: dark)">
+						<source srcset="/images/logo_light.svg" media="(prefers-color-scheme: light)">
+						<img src="/images/logo_light.svg" alt="{{ .Site.Title }} logo" width="170" height="25">
+					</picture>
 				</a>
 			</div>
 		</div>
