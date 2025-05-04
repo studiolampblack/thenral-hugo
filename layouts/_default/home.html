@@ -8,8 +8,8 @@
 {{- end -}}
 
 {{- range $featuredPost -}}
-<section class="block md:flex relative group p-6 lg:p-10 space-y-6 md:space-x-6 my-14 bg-zinc-100 rounded-3xl hover:bg-sky-100">
-  <figure class="basis-1/2 w-full aspect-video overflow-hidden rounded-2xl border">
+<section class="block md:flex relative group p-6 lg:p-10 space-y-6 md:space-x-6 my-14 bg-zinc-100 rounded-3xl hover:bg-sky-100 dark:bg-zinc-800 dark:hover:bg-zinc-700">
+  <figure class="basis-1/2 w-full aspect-video overflow-hidden rounded-2xl border dark:border-zinc-700">
 
     {{- if .Params.images }}
       {{- $firstImage := index .Params.images 0 }}
@@ -49,8 +49,8 @@
 
   </figure>
   <div class="basis-1/2 self-center">
-    <h2 class="text-2xl md:text-3xl lg:text-5xl font-hero mb-4"><a class="before:content-[''] before:z-10 before:top-0 before:right-0 before:left-0 before:bottom-0 before:absolute before:pointer-events-auto" href="{{ .Permalink }}">{{ .Title }}</a></h2>
-    <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}"><span class="font-bold">{{ .Date.Format "Jan 02, 2006" }}</span></time>
+    <h2 class="text-2xl md:text-3xl lg:text-5xl font-hero mb-4 dark:text-white"><a class="before:content-[''] before:z-10 before:top-0 before:right-0 before:left-0 before:bottom-0 before:absolute before:pointer-events-auto" href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}"><span class="font-bold dark:text-zinc-300">{{ .Date.Format "Jan 02, 2006" }}</span></time>
   </div>
 </section>
 {{ end -}}
@@ -65,9 +65,9 @@
 
     <div class="flex items-center mb-6">
 
-      <h2 class="text-3xl md:text-4xl font-bold mr-auto">{{ $cat | humanize }}</h2>
+      <h2 class="text-3xl md:text-4xl font-bold mr-auto dark:text-white">{{ $cat | humanize }}</h2>
 
-      <a class="border rounded-full py-2 px-4 md:px-6 hover:bg-sky-100" href="{{ printf "/categories/%s" $cat | absURL }}">View All</a>
+      <a class="border rounded-full py-2 px-4 md:px-6 hover:bg-sky-100 dark:hover:bg-zinc-700 dark:text-white" href="{{ printf "/categories/%s" $cat | absURL }}">View All</a>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10">
@@ -83,16 +83,16 @@
   </section>
 
 <!-- / End category post --> 
-<hr class="my-8">
+<hr class="my-8 dark:border-zinc-700">
 <!-- Start recent posts  -->
 
   <section class="mb-16">
 
     <div class="flex items-center mb-6">
 
-      <h2 class="text-3xl md:text-4xl font-bold mr-auto">Recent Posts</h2>
+      <h2 class="text-3xl md:text-4xl font-bold mr-auto dark:text-white">Recent Posts</h2>
 
-      <a class="border rounded-full py-2 px-4 md:px-6 hover:bg-sky-100" href="{{ "/posts" | absURL }}">View All</a>
+      <a class="border rounded-full py-2 px-4 md:px-6 hover:bg-sky-100 dark:hover:bg-zinc-700 dark:text-white" href="{{ "/posts" | absURL }}">View All</a>
 
     </div>
 
@@ -112,11 +112,11 @@
 
     <div class="flex items-center mt-10">
       {{- if $paginator.HasPrev -}}
-        <a class="border rounded-full px-6 py-2 hover:bg-zinc-200 mr-auto" href="{{ $paginator.Prev.URL }}">← Previous</a>
+        <a class="border rounded-full px-6 py-2 hover:bg-zinc-200 dark:hover:bg-zinc-700 dark:text-white mr-auto" href="{{ $paginator.Prev.URL }}">← Previous</a>
       {{- end -}}
 
       {{- if $paginator.HasNext -}}
-        <a class="border rounded-full px-6 py-2 hover:bg-zinc-200" href="{{ $paginator.Next.URL }}">Next →</a>
+        <a class="border rounded-full px-6 py-2 hover:bg-zinc-200 dark:hover:bg-zinc-700 dark:text-white" href="{{ $paginator.Next.URL }}">Next →</a>
       {{- end -}}
     </div>
 

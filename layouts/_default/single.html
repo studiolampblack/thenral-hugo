@@ -3,15 +3,15 @@
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
 
-  <article class="md:col-span-2 prose lg:prose-lg max-w-[750px]">
+  <article class="md:col-span-2 prose lg:prose-lg max-w-[750px] dark:prose-invert">
 
     <header class="not-prose">
       
-      <h1 id="title" class="text-4xl font-bold leading-normal">{{ .Title }}</h1>
+      <h1 id="title" class="text-4xl font-bold leading-normal dark:text-white">{{ .Title }}</h1>
 
       <div id="lead" class="my-6">
 
-        <p class="font-ui">{{ .Params.description }} </p>
+        <p class="font-ui dark:text-zinc-300">{{ .Params.description }} </p>
 
       </div>
       
@@ -19,15 +19,15 @@
 
         <ul class="flex items-center space-x-4 flex-nowrap whitespace-nowrap overflow-x-auto">
           
-          <li class="font-semibold my-2">{{ .Site.Params.Author.name }}</li>
+          <li class="font-semibold my-2 dark:text-white">{{ .Site.Params.Author.name }}</li>
           
-          <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">
+          <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2 dark:before:opacity-70 dark:text-zinc-300">
             {{- $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" -}}
             {{- $dateHuman := .Date | time.Format ":date_long" -}}
             <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
           </li>
 
-          <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">
+          <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2 dark:before:opacity-70 dark:text-zinc-300">
             {{ .ReadingTime }} min read
           </li>
 
@@ -84,7 +84,7 @@
     <!-- Table of Contents -->
     {{- partial "toc.html" . -}}
 
-    <div id="content" class="mb-14 text-base sm:text-lg">
+    <div id="content" class="mb-14 text-base sm:text-lg dark:text-zinc-300">
       <!-- Content -->
 
       {{- $content := .Content -}}
@@ -110,13 +110,13 @@
       </div>
       -->
 
-      <div id="author-box" class="my-8 md:my-14 border p-8 bg-zinc-100 rounded-2xl">
+      <div id="author-box" class="my-8 md:my-14 border p-8 bg-zinc-100 rounded-2xl dark:bg-zinc-800 dark:border-zinc-700">
 
         <img class="w-20 h-20 rounded-full" src="{{ .Site.Params.Author.avatar }}" alt="{{ .Site.Params.Author.name }}">
 
-        <h2 class="text-xl font-bold my-4">Written by : {{ .Site.Params.Author.name }}</h2>
+        <h2 class="text-xl font-bold my-4 dark:text-white">Written by : {{ .Site.Params.Author.name }}</h2>
 
-        <p class="mb-4">{{ .Site.Params.Author.bio }}</p>
+        <p class="mb-4 dark:text-zinc-300">{{ .Site.Params.Author.bio }}</p>
 
         {{- with .Site.Params.Author -}}
         <ul class="flex flex-wrap space-x-4">
@@ -158,7 +158,7 @@
 
       <div id="related-post" class="">
 
-        <h2 class="text-xl md:text-2xl font-bold mb-6 md:mb-8">Recommended for You</h2>
+        <h2 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 dark:text-white">Recommended for You</h2>
 
         {{- $related := .Site.RegularPages.Related . | first 2 -}}
 

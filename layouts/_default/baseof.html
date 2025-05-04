@@ -5,14 +5,14 @@
   {{ template "_internal/opengraph.html" . }}
   {{ template "_internal/twitter_cards.html" . }}
 </head>
-<body>
-  <header class="py-6 border-b">
+<body class="dark:bg-zinc-900 dark:text-zinc-300">
+  <header class="py-6 border-b dark:border-zinc-700">
     {{- partial "header.html" . -}}
   </header>
   <main class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
     {{- block "main" . }}{{ end -}}
   </main>
-  <footer class="bg-zinc-100 py-10 md:py-14">
+  <footer class="bg-zinc-100 py-10 md:py-14 dark:bg-zinc-800">
     {{- partial "footer.html" . -}}
   </footer>
   {{- partialCached "footer/js.html" . }}

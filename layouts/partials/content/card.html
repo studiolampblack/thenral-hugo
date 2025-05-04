@@ -1,4 +1,4 @@
-<article class="relative group bg-zinc-100 hover:bg-sky-100 rounded-3xl">
+<article class="relative group bg-zinc-100 hover:bg-sky-100 rounded-3xl dark:bg-zinc-800 dark:hover:bg-sky-700">
 	
 	<a class="insert-link" href="{{ .Permalink }}"></a>
 
@@ -42,13 +42,13 @@
 
 	  </figure>
 
-	<div class="p-6">
+	<div class="p-6 text-zinc-800 dark:text-zinc-200">
 
 		<time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">{{ .Date.Format "Jan 02, 2006" }}</time>
 
 		<h3 class="my-4 text-2xl font-bold">{{ .LinkTitle }}</h3>
 
-		<p class="text-normal leading-normal text-zinc-500 line-clamp-2">{{ .Params.description }}</p>
+		<p class="text-normal leading-normal text-zinc-500 dark:text-zinc-400 line-clamp-2">{{ .Params.description }}</p>
 
 	</div>
 </article>
