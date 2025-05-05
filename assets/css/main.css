@@ -669,6 +669,7 @@ pre, code {
 
 .prose figcaption a {
   color: inherit;
+  font-weight: normal;
 }
 
 @media (max-width: 640px) {
