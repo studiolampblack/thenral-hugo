@@ -649,7 +649,7 @@ pre, code {
   font-family: Source Code Pro, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 }
 
-.amazon-card {
+.ad-card {
   font-family: Sora, sans-serif;
   font-weight: 500;
 }
@@ -1306,8 +1306,8 @@ pre, code {
   margin-left: auto;
 }
 
-.mr-2 {
-  margin-right: 0.5rem;
+.mr-3 {
+  margin-right: 0.75rem;
 }
 
 .mr-4 {
@@ -1332,10 +1332,6 @@ pre, code {
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.mr-3 {
-  margin-right: 0.75rem;
 }
 
 .line-clamp-2 {

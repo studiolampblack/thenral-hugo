@@ -2,19 +2,7 @@
 {{ if $ads }}
   {{ $shuffledAds := shuffle (seq 1 (len $ads)) }}
   {{ $randomAd := index $ads (sub (index $shuffledAds 0) 1) }}
-  <div class="rounded-2xl p-4 bg-zinc-100 mb-10 dark:bg-zinc-800">
-
-    <a href="{{ $randomAd.link }}" target="_blank" rel="noopener" title="Visit {{ $randomAd.alt }}">
-      <picture>
-        <source srcset="{{ $randomAd.image_dark }}" media="(prefers-color-scheme: dark)">
-        <source srcset="{{ $randomAd.image_light }}" media="(prefers-color-scheme: light)">
-        <img class="aspect-square rounded" src="{{ $randomAd.image_light }}" alt="{{ $randomAd.alt }}" loading="lazy">
-      </picture>
-    </a>
-
-    <p class="text-right text-xs mt-2 leading-none text-zinc-500 dark:text-zinc-400">{{ $randomAd.text | default "Advertisement" }}</p>
-
-  </div>
+  {{ partial "content/ad.html" $randomAd }}
 {{ else }}
   <p class="text-center text-sm text-zinc-500 dark:text-zinc-400">No advertisements available.</p>
 {{ end }}

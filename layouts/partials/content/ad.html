@@ -1,0 +1,15 @@
+<div class="rounded-2xl p-4 bg-zinc-100 mb-10 dark:bg-zinc-800">
+{{ with . }}
+    <a href="{{ .link }}" target="_blank" rel="nofollow" title="Visit {{ .alt }}">
+      <picture>
+        <source srcset="{{ .image_dark | default .image_light }}" media="(prefers-color-scheme: dark)">
+        <source srcset="{{ .image_light }}" media="(prefers-color-scheme: light)">
+        <img class="aspect-square rounded" src="{{ .image_light }}" alt="{{ .alt }}" loading="lazy">
+      </picture>
+    </a>
+
+    <p class="text-right text-xs mt-2 leading-none text-zinc-500 dark:text-zinc-400">{{ .text | default "Advertisement" }}</p>
+{{ else }}
+    <p class="text-center font-ui text-sm text-zinc-500 dark:text-zinc-400">No advertisement data provided.</p>
+{{ end }}
+</div>
