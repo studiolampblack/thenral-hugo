@@ -1,0 +1,12 @@
+{{ $index := .Get "index" | default "0" }}
+{{ $ad := index site.Data.ads (int $index) }}
+
+<div class="mx-auto my-8 w-full sm:w-full md:w-3/4 lg:w-1/2 max-w-lg">
+    <div class="not-prose ad-card">
+    {{ if $ad }}
+        {{ partial "content/ad.html" $ad }}
+    {{ else }}
+        <p class="text-center font-ui text-sm text-zinc-500 dark:text-zinc-400">No advertisement found for the given index.</p>
+    {{ end }}
+    </div>
+</div>
