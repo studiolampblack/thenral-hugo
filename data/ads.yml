@@ -1,0 +1,5 @@
+- image_light: "/advertisement.png"
+  image_dark: "/advertisement.png"
+  link: "https://www.google.com/"
+  alt: "Demo advertisement saying 'Keep calm and run ads'"
+  text: "Advertisement"
