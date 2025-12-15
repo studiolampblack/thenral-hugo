@@ -3,9 +3,7 @@
 	<figure class="basis-1/3 aspect-square overflow-hidden rounded-2xl bg-zinc-100">
 
 		{{- if .Params.images }}
-		  {{- $firstImage := index .Params.images 0 }}
-
-		  {{- if (or (strings.HasPrefix $firstImage "http") (strings.HasPrefix $firstImage "//")) }}
+		  	{{- $firstImage := index .Params.images 0 }}
 
 		    {{- if .Site.Params.cdnImage }}
 
@@ -22,19 +20,6 @@
 			       alt="{{ $.Name }}">
 
 		    {{- end }}
-
-		  {{- else }}
-
-			{{- with $imglist := resources.Get $firstImage -}}
-			  {{- $imglist := $imglist.Crop "250x250 Center" -}}
-			  <img class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img" 
-			       src="{{ $imglist.Permalink }}" 
-			       alt="{{ $.Name }}" 
-			       width="{{ $imglist.Width }}" 
-			       height="{{ $imglist.Height }}">
-			{{- end }}
-
-		  {{- end }}
 
 		{{- end }}
 

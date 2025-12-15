@@ -42,34 +42,19 @@
       {{- if .Params.images }}
         {{- $firstImage := index .Params.images 0 }}
 
-        {{- if (or (strings.HasPrefix $firstImage "http") (strings.HasPrefix $firstImage "//")) }}
+        {{- if .Site.Params.cdnImage }}
 
-          {{- if .Site.Params.cdnImage }}
-
-            <img class="rounded-lg dark:dark-img" 
-              src="{{ $firstImage }}?width=750&height=420&fit=cover" 
-              alt="{{ .Params.title }}"
-              width="750"
-              height="422">
-
-          {{- else }}
-
-            <img class="rounded-lg dark:dark-img" 
-              src="{{ $firstImage }}" 
-              alt="{{ .Params.title }}">
-
-          {{- end }}
+          <img class="rounded-lg dark:dark-img" 
+            src="{{ $firstImage }}?width=750&height=420&fit=cover" 
+            alt="{{ .Params.title }}"
+            width="750"
+            height="422">
 
         {{- else }}
 
-          {{- with $image := resources.Get $firstImage }}
-            {{- $image := $image.Resize "750x" }}
-            <img class="rounded-lg dark:dark-img"
-              src="{{ $image.Permalink }}"
-              alt="{{ .Params.title }}"
-              width="{{ $image.Width }}"
-              height="{{ $image.Height }}">
-          {{- end }}
+          <img class="rounded-lg dark:dark-img" 
+            src="{{ $firstImage }}" 
+            alt="{{ .Params.title }}">
 
         {{- end }}
 

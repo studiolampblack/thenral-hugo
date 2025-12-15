@@ -14,34 +14,19 @@
     {{- if .Params.images }}
       {{- $firstImage := index .Params.images 0 }}
 
-      {{- if (or (strings.HasPrefix $firstImage "http") (strings.HasPrefix $firstImage "//")) }}
+      {{- if .Site.Params.cdnImage }}
 
-        {{- if .Site.Params.cdnImage }}
-
-          <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img" 
-               src="{{ $firstImage }}?width=720&height=405&fit=cover" 
-               alt="{{ $.Name }}" 
-               width="720"
-               height="405">
-
-        {{- else }}
-
-          <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img" 
-               src="{{ $firstImage }}" 
-               alt="{{ $.Name }}">
-
-        {{- end }}
+        <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img" 
+            src="{{ $firstImage }}?width=720&height=405&fit=cover" 
+            alt="{{ $.Name }}" 
+            width="720"
+            height="405">
 
       {{- else }}
 
-        {{- with $imgfeature := resources.Get $firstImage }}
-          {{ $imgfeature := $imgfeature.Resize "720x Q85" -}}
-          <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img"
-               src="{{ $imgfeature.Permalink }}"
-               alt="{{ $.Name }}"
-               width="{{ $imgfeature.Width }}"
-               height="{{ $imgfeature.Height }}">
-        {{- end }}
+        <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img" 
+            src="{{ $firstImage }}" 
+            alt="{{ $.Name }}">
 
       {{- end }}
 

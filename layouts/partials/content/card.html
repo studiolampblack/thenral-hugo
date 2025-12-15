@@ -6,37 +6,21 @@
 
 		{{- if .Params.images }}
 		  {{- $firstImage := index .Params.images 0 }}
+		  {{- if .Site.Params.cdnImage }}
 
-		  {{- if (or (strings.HasPrefix $firstImage "http") (strings.HasPrefix $firstImage "//")) }}
+				<img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img"
+					src="{{ $firstImage }}?width=750&height=420&fit=cover" 
+					alt="{{ $.Name }}"
+					width="750"
+					height="422">
 
-		    {{- if .Site.Params.cdnImage }}
+			{{- else }}
 
-			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img"
-				   src="{{ $firstImage }}?width=750&height=420&fit=cover" 
-				   alt="{{ $.Name }}"
-				   width="750"
-				   height="422">
+				<img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img"
+					src="{{ $firstImage }}" 
+					alt="{{ $.Name }}">
 
-		    {{- else }}
-
-			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img"
-				   src="{{ $firstImage }}" 
-				   alt="{{ $.Name }}">
-
-		    {{- end }}
-
-		  {{- else }}
-
-			{{- with $imgcard := resources.Get $firstImage -}}
-			  {{- $imgcard := $imgcard.Process "resize 750x" -}}
-			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer dark:dark-img"
-				   src="{{ $imgcard.Permalink }}"
-				   alt="{{ $.Name }}"
-				   width="{{ $imgcard.Width }}"
-				   height="{{ $imgcard.Height }}">
 			{{- end }}
-
-		  {{- end }}
 
 		{{- end }}
 
